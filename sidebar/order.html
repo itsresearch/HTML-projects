@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>order</title>
+	<style>
+.form{
+max-width:50%;
+padding:20px;
+margin:0 auto;
+}
+.form-group{
+padding:20px;
+}
+.form-group label{
+display:block;
+font-weight:bold;
+margin-bottom:5px;
+}
+.form-group input,select{
+border-color:red;
+border-radius:5px;
+margin:4px 2px;
+padding:20px;
+font-size:16px;
+width:100%;
+}
+button{
+margin:4px 2px;
+background-color:black;
+padding:20px;
+color:white;
+border-color:green;
+border-radius:10px;
+cursor: pointer;
+}
+
+.bar{
+width:250px;
+height:100%;
+background-color:grey;
+position:fixed;
+}
+.bar ul a{
+	text-decoration:none;
+	color:white;
+	padding:15px 20px;
+	display:block;
+}
+.bar ul{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+.bar ul li a:hover{
+background-color:black;
+}
+</style>
+<body>
+
+ <div class="bar" >
+        <ul>
+<li><a href="sidebar.html">Admin </a></li>
+<li><a href="#">Dashboard </a></li>
+<li><a href="product.html">Menu</a></li>
+<li><a href="order.html">Order</a></li>
+<li><a href="#">Report</a></li>
+<li><a href="#">Setting</a></li>
+</ul>
+   </div>
+   <h1 align="center">PLACE YOUR ORDER!!!</h1>
+<div class="form">
+<form action="order.php" method="post">
+<div class="form-group">
+<label>Customer Name:</label><input type="text" name="name" placeholder="Enter your name">
+</div>
+<div class="form-group">
+<label>Menu:</label><select name="menu">
+	  <option value="">Select here....</option>
+ 	<option value="biryani">BIRYANI</option>
+ 	<option value="pakoda">PAKODA</option>
+ 	<option value="butter-chicken">BUTTER CHICKEN</option>
+ 	<option value="fried-rice">FRIED RICE</option>
+	 <option value="chicken-tandoori">CHICKEN TANDOORI</option>
+</select></div>
+<div class="form-group">
+<label>Quantity:</label><input type="number" name="quantity" placeholder="quantity here....">
+</div>
+<div class="form-group">
+<button type="order">ORDER.</button>
+</div>
+</form>
+</div>
+</body>
+</html>
