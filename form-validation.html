@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>Form-validation</title>
+  </head>
+  <body>
+    <form>
+      Name: <input type="text" id="name" required="required"></input><br>
+      Phone: <input type="phone" id="phone" required="required"></input><br>
+      Email: <input type="email" id="email" required="required"></input><br>
+      DOB: <input type="date" id="dob" required="required"></input><br>
+      <input type="button" value="Submit" onClick="validateform()">
+    </form>
+
+    <script>
+      function validateform() {
+        var name = document.getElementById("name").value;
+        var phone = document.getElementById("phone").value;
+        var email = document.getElementById("email").value;
+        var dob = document.getElementById("dob").value;
+
+        var pattern = /^NCC[A-Za-z ]+BIM$/;
+        var patternphone = /^98[0-9]{8}$/;
+        var patternemail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        
+        var dobDate = new Date(dob);
+        var year = dobDate.getFullYear();
+        var month = dobDate.getMonth() + 1;
+        var date = dobDate.getDate();
+
+        if (name == "" || phone == "" || email == "" || dob == "") {
+          alert("All fields are required");
+        } else if (name.length > 15) {
+          alert("Name should be less than or equal to 15 characters");
+        } else if (!name.match(pattern)) {
+          alert("Name should start with NCC and end with BIM");
+        } else if (!phone.match(patternphone)) {
+          alert("Phone must start with 98 and must be 10 digits long");
+        } else if ((year == 2022 && (month < 1 || month > 12)) || (year == 2023 && (month < 1 || month > 7))) {
+          alert("For year 2022, months should be between 1 and 12. For year 2023, months should be between 1 and 7.");
+        } else if (year == 2023 && month == 7 && (date < 1 || date > 23)) {
+          alert("For year 2023, month 7, the date should be between 1 and 23.");
+        } else if (year < 1999 || year > 2023) {
+          alert("Year of birth must be between 1999 and 2023");
+        } else if (!email.match(patternemail)) {
+          alert("Invalid email");
+        } else {
+          alert("Form is valid");
+        }
+      }
+    </script>
+  </body>
+</html>
